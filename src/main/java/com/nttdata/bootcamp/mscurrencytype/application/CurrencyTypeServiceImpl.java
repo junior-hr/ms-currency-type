@@ -48,4 +48,11 @@ public class CurrencyTypeServiceImpl implements CurrencyTypeService {
                 .switchIfEmpty(Mono.error(new ResourceNotFoundException("Currency Type", "idCurrencyType", idCurrencyType)))
                 .flatMap(dcu -> currencyTypeRepository.delete(dcu));
     }
+
+    @Override
+    public Mono<CurrencyType> findByCurrencyType(String currencyType) {
+        return Mono.just(currencyType)
+                .flatMap(currencyTypeRepository::findByCurrencyType)
+                .switchIfEmpty(Mono.error(new ResourceNotFoundException("Currency Type", "currencyType", currencyType)));
+    }
 }

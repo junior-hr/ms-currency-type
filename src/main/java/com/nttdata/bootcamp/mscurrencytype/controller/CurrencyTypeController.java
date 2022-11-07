@@ -40,6 +40,15 @@ public class CurrencyTypeController {
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/type/{currencyType}")
+    public Mono<ResponseEntity<CurrencyType>> getCurrencyTypeByCurrencyType(@PathVariable("currencyType") String currencyType) {
+        log.info("--getCurrencyTypeByCurrencyType-------currencyType: " + currencyType);
+        return currencyTypeService.findByCurrencyType(currencyType)
+                .map(c -> ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON)
+                        .body(c))
+                .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
+
     @PostMapping
     public Mono<ResponseEntity<Map<String, Object>>> saveCurrencyType(@Valid @RequestBody Mono<CurrencyType> personType) {
         Map<String, Object> request = new HashMap<>();

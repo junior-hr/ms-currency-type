@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.bind.support.WebExchangeBindException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-
+/**
+ * Class GlobalExceptionHandler.
+ * CurrencyType microservice class GlobalExceptionHandler.
+ */
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {

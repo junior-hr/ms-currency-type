@@ -4,11 +4,21 @@ import com.nttdata.bootcamp.mscurrencytype.model.CurrencyType;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+/**
+ * Class CurrencyTypeService.
+ * CurrencyType microservice class CurrencyTypeService.
+ */
 public interface CurrencyTypeService {
     public Flux<CurrencyType> findAll();
+
     public Mono<CurrencyType> findById(String idCurrencyType);
+
     public Mono<CurrencyType> save(CurrencyType currencyType);
+
     public Mono<CurrencyType> update(CurrencyType currencyType, String idCurrencyType);
+
     public Mono<Void> delete(String idCurrencyType);
+
+    public Mono<CurrencyType> findByCurrencyType(String currencyType);
 
 }
